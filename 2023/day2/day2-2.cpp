@@ -72,9 +72,9 @@ bool isPossible(std::vector<std::string> game){
     bool possible = 1;
     int n;
 
-    for (auto trial : game){
+    for (const auto &trial : game){
         auto cubes = getParsed(trial, ", ");
-        for (auto c : cubes){
+        for (const auto &c : cubes){
             for (auto it = limits.begin(); it != limits.end(); ++it){
                 size_t pos = (c.find(it->first));
                 if (pos != std::string::npos){
@@ -101,10 +101,10 @@ std::vector<int> getMinSet(std::vector<std::string> game){
     std::vector<int> minSet = {0, 0, 0};
     int n;
     
-    for (auto trial : game){
+    for (const auto &trial : game){
 
         auto cubes = getParsed(trial, ", ");
-        for (auto c : cubes){
+        for (const auto &c : cubes){
 
             for (int i = 0; i < colors.size(); ++i){
                 size_t pos = (c.find(colors[i]));

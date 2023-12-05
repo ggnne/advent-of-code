@@ -70,7 +70,7 @@ int main(int argc, char** argv){
             
             std::vector<int> coord = {N, M};
             auto offset = getOffsetCoords(coord);
-            for (auto c : offset){
+            for (const auto &c : offset){
                 tempset.insert(c);
             }
             tempstr += ch;

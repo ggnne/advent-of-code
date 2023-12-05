@@ -69,8 +69,8 @@ std::vector<std::vector<std::vector<L>>> getAlmanac(std::ifstream &fin){
 
 L testSeed(L seed, std::vector<std::vector<std::vector<L>>> &almanac){
     
-    for (auto m : almanac){
-        for (auto r : m){
+    for (auto &m : almanac){
+        for (auto &r : m){
             if (seed >= r[1] && seed <= (r[1] + r[2])){
                 seed = r[0] + (seed - r[1]);
                 break;
@@ -87,8 +87,6 @@ int main(int argc, char** argv){
 
     auto seeds = getSeeds(fin);
     
-    assert(seeds.size() > 0);
-
     auto almanac = getAlmanac(fin);
 
     L minLoc = ULLONG_MAX, loc;
